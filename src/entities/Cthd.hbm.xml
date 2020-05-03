@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 13, 2019 1:33:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Cthd" table="CTHD" schema="dbo" catalog="qlks3" optimistic-lock="version">
+        <id name="maHd" type="int">
+            <column name="maHD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="khachhang" class="entities.Khachhang" fetch="select">
+            <column name="CMND" not-null="true" />
+        </many-to-one>
+        <many-to-one name="phong" class="entities.Phong" fetch="select">
+            <column name="maphong" not-null="true" />
+        </many-to-one>
+        <property name="checkin" type="timestamp">
+            <column name="checkin" length="23" />
+        </property>
+        <property name="checkout" type="timestamp">
+            <column name="checkout" length="23" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" />
+        </property>
+    </class>
+</hibernate-mapping>
